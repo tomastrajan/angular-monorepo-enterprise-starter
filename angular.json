@@ -2,7 +2,188 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "user-admin": {
+      "root": "apps/user-admin/",
+      "sourceRoot": "apps/user-admin/src",
+      "projectType": "application",
+      "prefix": "ames",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/user-admin",
+            "index": "apps/user-admin/src/index.html",
+            "main": "apps/user-admin/src/main.ts",
+            "polyfills": "apps/user-admin/src/polyfills.ts",
+            "tsConfig": "apps/user-admin/tsconfig.app.json",
+            "assets": [
+              "apps/user-admin/src/favicon.ico",
+              "apps/user-admin/src/assets"
+            ],
+            "styles": [
+              "apps/user-admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/user-admin/src/environments/environment.ts",
+                  "with": "apps/user-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "user-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "user-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "user-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/user-admin/tsconfig.app.json",
+              "apps/user-admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/user-admin/jest.config.js",
+            "tsConfig": "apps/user-admin/tsconfig.spec.json",
+            "setupFile": "apps/user-admin/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "user-admin-e2e": {
+      "root": "apps/user-admin-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/user-admin-e2e/cypress.json",
+            "tsConfig": "apps/user-admin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "user-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "user-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/user-admin-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "api-user-admin": {
+      "root": "apps/api-user-admin",
+      "sourceRoot": "apps/api-user-admin/src",
+      "projectType": "application",
+      "prefix": "api-user-admin",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/api-user-admin",
+            "main": "apps/api-user-admin/src/main.ts",
+            "tsConfig": "apps/api-user-admin/tsconfig.app.json",
+            "assets": [
+              "apps/api-user-admin/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api-user-admin/src/environments/environment.ts",
+                  "with": "apps/api-user-admin/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "api-user-admin:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api-user-admin/tsconfig.app.json",
+              "apps/api-user-admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/api-user-admin/jest.config.js",
+            "tsConfig": "apps/api-user-admin/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -10,5 +191,6 @@
     },
     "defaultCollection": "@nrwl/schematics",
     "packageManager": "npm"
-  }
+  },
+  "defaultProject": "user-admin"
 }
