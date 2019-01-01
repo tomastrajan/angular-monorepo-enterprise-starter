@@ -1,0 +1,11 @@
+mat-toolbar {
+  display: flex;
+
+  .app-name {
+    flex: 2 1 auto;
+  }
+
+  button {
+    margin: 0 0 0 15px;
+  }
+}
