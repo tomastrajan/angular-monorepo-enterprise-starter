@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
-import { getGreeting } from '../support/app.po';
+import { getAppName } from '../support/app.po';
 
-describe('Hello Nx', () => {
+describe('User Admin', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    getGreeting().contains('Welcome to user-admin!');
+  it('should display app name', () => {
+    getAppName().contains('User Admin');
   });
 });
