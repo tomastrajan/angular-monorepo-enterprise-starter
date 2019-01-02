@@ -1,8 +1,3 @@
-<mat-toolbar>
-  <span class="app-name">User Admin</span>
-
-  <button mat-flat-button>Users</button>
-  <button mat-flat-button>Roles</button>
-  <button mat-flat-button>Capabilities</button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<ames-shell [appName]="env.appName" [navigation]="navigation">
+  <router-outlet></router-outlet>
+</ames-shell>
