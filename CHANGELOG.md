@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/tomastrajan/angular-monorepo-enterprise-starter/compare/v0.1.0...v0.2.0) (2019-01-02)
+
+
+### Bug Fixes
+
+* **workspace:** bump miss-matched deps and regenerate package-lock.json ([6601779](https://github.com/tomastrajan/angular-monorepo-enterprise-starter/commit/6601779))
+* **workspace:** fix codecov by generating lcov files ([85a4d11](https://github.com/tomastrajan/angular-monorepo-enterprise-starter/commit/85a4d11))
+* **workspace:** regenerate package-lock.json ([59dbb42](https://github.com/tomastrajan/angular-monorepo-enterprise-starter/commit/59dbb42))
+
+
+### Features
+
+* **workspace:** update nrwl/nx ([8ba701e](https://github.com/tomastrajan/angular-monorepo-enterprise-starter/commit/8ba701e))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2019-01-02)
 
