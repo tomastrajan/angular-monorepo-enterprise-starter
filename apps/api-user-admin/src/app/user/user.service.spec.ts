@@ -5,10 +5,13 @@ import { UserService } from './user.service';
 
 describe('UserService', () => {
   let service: UserService;
-  
+
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [{ provide: 'UserRepository', useClass: Repository }, UserService],
+      providers: [
+        { provide: 'UserRepository', useClass: Repository },
+        UserService
+      ]
     }).compile();
     service = module.get<UserService>(UserService);
   });

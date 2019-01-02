@@ -1,18 +1,18 @@
 export const TEST_DATA = {
   User: [
     {
-      username: "admin",
-      password: "admin",
+      username: 'admin',
+      password: 'admin',
       active: true
     }
   ],
   Role: [
     {
-      name: "admin",
+      name: 'admin',
       active: true
     },
     {
-      name: "user",
+      name: 'user',
       active: true
     }
   ]

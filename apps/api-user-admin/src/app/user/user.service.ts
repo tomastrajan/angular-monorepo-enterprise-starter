@@ -9,7 +9,7 @@ import { CreateUserDto } from './user.dto';
 export class UserService {
   constructor(
     @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    private readonly userRepository: Repository<User>
   ) {}
 
   findAll(): Promise<User[]> {
