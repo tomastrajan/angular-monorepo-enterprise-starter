@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "importHelpers": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -22,7 +23,8 @@
       "@ames/ui": [
         "libs/ui/src/index.ts"
       ]
-    }
+    },
+    "module": "es2015"
   },
   "exclude": [
     "node_modules",
