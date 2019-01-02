@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span class="app-name">{{ appName }}</span>
+
+  <button
+    mat-stroked-button
+    *ngFor="let item of navigation"
+    [routerLink]="item.link"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [color]="rla.isActive ? 'primary' : ''"
+  >
+    {{ item.label }}
+  </button>
+</mat-toolbar>
+
+<div class="content"><ng-content></ng-content></div>
+
+<footer>{{ year }} - Tomas Trajan</footer>

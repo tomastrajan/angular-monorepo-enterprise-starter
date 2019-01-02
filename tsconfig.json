@@ -19,6 +19,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@ames/ui": [
+        "libs/ui/src/index.ts"
+      ]
     }
   },
   "exclude": [

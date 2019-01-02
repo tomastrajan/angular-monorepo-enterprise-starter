@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-toolbar {
+  display: flex;
+
+  .app-name {
+    flex: 2 1 auto;
+  }
+
+  button {
+    margin: 0 0 0 15px;
+  }
+}
+
+.content {
+  flex: 2 1 auto;
+  padding: 20px;
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
