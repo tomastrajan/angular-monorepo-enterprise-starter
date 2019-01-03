@@ -3,12 +3,14 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToMany,
-  JoinTable
+  JoinTable,
+  UpdateDateColumn,
+  CreateDateColumn
 } from 'typeorm';
 
 import { User } from '../user/user.entity';
 
-@Entity()
+@Entity('ames-role')
 export class Role {
   @PrimaryGeneratedColumn()
   id: number;
@@ -22,4 +24,10 @@ export class Role {
 
   @Column()
   active: boolean;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt: Date;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt: Date;
 }

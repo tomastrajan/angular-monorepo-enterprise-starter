@@ -1,8 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  UpdateDateColumn, CreateDateColumn
+} from 'typeorm';
 
 import { Role } from '../role/role.entity';
 
-@Entity()
+@Entity('ames-user')
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
@@ -18,4 +24,10 @@ export class User {
 
   @Column()
   active: boolean;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt: Date;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt: Date;
 }

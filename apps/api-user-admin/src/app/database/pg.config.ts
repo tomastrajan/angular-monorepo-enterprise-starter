@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-import { User } from '../user/user.entity';
+import { entities } from './entities';
 
 const {
   POSTGRES_HOST,
@@ -17,5 +17,6 @@ export const config: TypeOrmModuleOptions | any = {
   username: POSTGRES_USER,
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE,
-  entities: [User]
+  entities,
+  ssl: true
 };
