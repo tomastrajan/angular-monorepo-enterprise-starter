@@ -3,7 +3,8 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToMany,
-  UpdateDateColumn, CreateDateColumn
+  UpdateDateColumn,
+  CreateDateColumn
 } from 'typeorm';
 
 import { Role } from '../role/role.entity';

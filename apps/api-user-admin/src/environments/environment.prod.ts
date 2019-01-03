@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   appName: 'api-user-admin',
-  port: 4000
+  port: process.env.PORT
 };
