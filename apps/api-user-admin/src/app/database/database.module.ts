@@ -5,10 +5,10 @@ import { Connection } from 'typeorm';
 import { environment } from '../../environments/environment';
 
 import { config as sqliteConfig } from './sqlite.config';
-import { config as mysqlConfig } from './mysql.config';
+import { config as pgConfig } from './pg.config';
 import { TEST_DATA } from './test-data';
 
-const typeOrmOptions = environment.production ? mysqlConfig : sqliteConfig;
+const typeOrmOptions = environment.production ? pgConfig : sqliteConfig;
 
 @Global()
 @Module({
